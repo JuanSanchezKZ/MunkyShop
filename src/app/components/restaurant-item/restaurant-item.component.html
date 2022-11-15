@@ -1,0 +1,73 @@
+<div class="container-fluid" *ngFor="let restos of restaurantData">
+  <div
+    class="container-fluid header"
+    [style.background-image]="'url(' + restos.imageUrl + ')'"
+    [style.background-position]="'center'"
+  ></div>
+  <hr />
+  <div class="container-fluid mt-3 desc">
+    <div class="row">
+      <div class="col-sm-6 d-flex flex-column local-info">
+        <h3>
+          <img
+            class="img-fluid weed-logo"
+            src="../../../assets/images/weedlogo.png"
+            alt=""
+          />{{ restos.name }}
+        </h3>
+
+        <span>{{ restos.products }}</span>
+        <span>{{ restos.address }}, CABA, Argentina</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mt-3 align-items-center">
+        <div class="col-4 d-flex justify-content-center">
+          <div class="free-shipping">
+            <img src="../../../assets/images/motologo.webp" alt="" />Envío
+            Gratis
+          </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+          <div class="rating text-center">
+            Calificación:
+            <p>
+              <img src="../../../assets/images/star.png" alt="" />{{
+                restos.rating
+              }}
+            </p>
+          </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+          <div class="estimated-time">
+            Delivery:
+            <p>36 - 43 min</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <h1 class="text-center mb-3">Menu</h1>
+  <div class="container-fluid">
+    <div *ngIf="restos.menus">
+      <div class="row">
+        <div *ngFor="let i of restos.menus" style="width: 25rem">
+          <div class="row mt-3">
+            <div class="col-6">
+              <div class="menu__name">{{ i.name }}</div>
+              <div class="menu__description">{{ i.description }}</div>
+              <div class="menu__price mt-3">{{ i.price | currency }}</div>
+            </div>
+            <div class="col-6">
+              <img class="img" [src]="i.imageUrl" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-add-menu [restaurantId]="id"></app-add-menu>
+</div>
