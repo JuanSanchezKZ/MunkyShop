@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Cart</h1>
+<div *ngIf="cartItems">
+  <div mat-dialog-content *ngFor="let item of cartItems">
+    {{ item.name }}
+  </div>
+</div>
+<div mat-dialog-actions></div>

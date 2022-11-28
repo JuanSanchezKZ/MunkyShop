@@ -12,7 +12,7 @@ export class RestaurantListComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getRestaurants().subscribe((data) => {
-      this.locales = data.filter((a: any) => a.id > 14);
+      this.locales = data;
       console.log(data);
     });
   }

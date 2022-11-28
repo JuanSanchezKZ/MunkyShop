@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://munkyapi.azurewebsites.net/api/',
+  apiUrl: 'https://localhost:44303/api/',
 };
 
 /*
